@@ -8,6 +8,7 @@
         <Button Text="Vet List" Clicked="VetList"/>
         <Button Text="Pet Registration" Clicked="PetRegister"/>
         <Button Text="Pet Display" Clicked="Button_Clicked"/>
+        <Button Text="User Display" IsVisible="{Binding IsUserListEnabled}" />
         <Button Text="Logout" Clicked="Logout" />
     </StackLayout>
 

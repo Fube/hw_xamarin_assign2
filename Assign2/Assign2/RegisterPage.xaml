@@ -31,7 +31,6 @@
             <Entry Text="{ Binding Path=User.Email }"
             Placeholder="E-mail"
             FontSize="Large"
-            IsPassword="True"
             />
 
             <Button x:Name="btnRegister"

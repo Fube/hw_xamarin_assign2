@@ -13,6 +13,8 @@ namespace Assign2
         public static Lazy<GenericDBEntity<Vet>> Vets = new Lazy<GenericDBEntity<Vet>>(() => new GenericDBEntity<Vet>(PATH));
         public static Lazy<GenericDBEntity<Pet>> Pets = new Lazy<GenericDBEntity<Pet>>(() => new GenericDBEntity<Pet>(PATH));
 
+        public static User Principal = null;
+
         public App()
         {
             InitializeComponent();

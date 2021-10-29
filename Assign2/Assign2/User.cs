@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,6 +14,8 @@ namespace Assign2
         public string Email { get; set; }
         public string Password { get; set; }
         public string Phone { get; set; }
+        [ManyToMany(typeof(UserRole))]
+        public IList<Role> Roles { get; set; }
         
 
         public bool IsValid(out string message)

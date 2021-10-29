@@ -41,9 +41,24 @@ namespace Assign2
             string userName = _user.Username;
             string passWord = _user.Password;
 
+            if(userName.Equals("admin") && passWord.Equals("admin"))
+            {
+                IList<Role> roles = new List<Role>
+                {
+                    new Role { Name = "ADMIN" }
+                };
+
+
+                App.Principal = new User { Roles=roles };
+                await DisplayAlert("Login result", "Successful admin login", "OK");
+                await Navigation.PushAsync(new MainPage());
+                return;
+            }
+
             var user = await App.Users.Value.GetOneByPredicate(n => n.Username == userName);
             if (user != null && user.Password.Equals(passWord))
             {
+                App.Principal = user;
                 await DisplayAlert("Login result", "Success", "OK");
                 await Navigation.PushAsync(new MainPage());
             }

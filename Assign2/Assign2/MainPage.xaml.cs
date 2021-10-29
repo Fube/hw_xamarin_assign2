@@ -8,11 +8,14 @@ using Xamarin.Forms;
 
 namespace Assign2
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage : ContentPage, INotifyPropertyChanged
     {
+        public bool IsUserListEnabled { get; set; }
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = this;
+            IsUserListEnabled = App.Principal.Roles.Any(n => n.Name == "ADMIN");
         }
 
         private async void VetRegister(object sender, EventArgs e) => await Navigation.PushAsync(new VetRegister());
@@ -24,7 +27,5 @@ namespace Assign2
         private async void PetRegister(System.Object sender, System.EventArgs e) => await Navigation.PushAsync(new PetRegister());
 
         private async void Button_Clicked(System.Object sender, System.EventArgs e) => await Navigation.PushAsync(new PetList());
-        
-
     }
 }
