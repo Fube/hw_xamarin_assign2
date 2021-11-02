@@ -11,22 +11,17 @@ namespace Assign2
     public partial class MainPage : ContentPage, INotifyPropertyChanged
     {
         public new event PropertyChangedEventHandler PropertyChanged;
-        public bool _IsUserListEnabled { get; set;}
-        public bool IsUserListEnabled 
-        { 
-            get => _IsUserListEnabled;
-            set
-            {
-                _IsUserListEnabled = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsUserListEnabled)));
-            }
-        }
+
+        public bool IsUserListEnabled => App.Principal.IsAdmin;
+        public bool IsVetListEnabled => App.Principal.IsAdmin || App.Principal.IsViewer;
+        public bool IsVetRegisterEnabled => App.Principal.IsAdmin || App.Principal.IsInternal;
+        public bool IsPetListEnabled => App.Principal.IsAdmin || App.Principal.IsInternal;
+        public bool IsPetRegisterEnabled => App.Principal.IsAdmin || App.Principal.IsViewer;
+
         public MainPage()
         {
             InitializeComponent();
             BindingContext = this;
-
-            IsUserListEnabled = App.Principal.IsAdmin;
         }
 
         private async void VetRegister(object sender, EventArgs e) => await Navigation.PushAsync(new VetRegister());
