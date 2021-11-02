@@ -43,14 +43,14 @@ namespace Assign2
 
             if(userName.Equals("admin") && passWord.Equals("admin"))
             {
-                IList<Role> roles = new List<Role>
+                List<Role> roles = new List<Role>
                 {
                     new Role { Name = "ADMIN" }
                 };
 
 
                 App.Principal = new User { Roles=roles };
-                await DisplayAlert("Login result", "Successful admin login", "OK");
+                //await DisplayAlert("Login result", "Successful admin login", "OK");
                 await Navigation.PushAsync(new MainPage());
                 return;
             }
@@ -59,7 +59,7 @@ namespace Assign2
             if (user != null && user.Password.Equals(passWord))
             {
                 App.Principal = user;
-                await DisplayAlert("Login result", "Success", "OK");
+                //await DisplayAlert("Login result", "Success", "OK");
                 await Navigation.PushAsync(new MainPage());
             }
             else
