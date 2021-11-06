@@ -12,7 +12,6 @@ namespace Assign2
         {
             InitializeComponent();
             BindingContext = this;
-            loadPets();
         }
 
         private async void loadPets()
@@ -40,6 +39,11 @@ namespace Assign2
             }
             var pet = await App.Pets.GetOneByPredicate(n => n.OwnerID == ownerId);
             await Navigation.PushAsync(new PetEdit(pet));
+        }
+
+        protected override void OnAppearing()
+        {
+            loadPets();
         }
     }
 }
