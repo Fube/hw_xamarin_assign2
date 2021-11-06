@@ -14,6 +14,7 @@ namespace Assign2
         public static Lazy<GenericDBEntity<Pet>> Pets = new Lazy<GenericDBEntity<Pet>>(() => new GenericDBEntity<Pet>(PATH));
         public static Lazy<GenericDBEntity<Role>> Roles = new Lazy<GenericDBEntity<Role>>(() => new GenericDBEntity<Role>(PATH));
         public static GenericDBEntity<UserRole> UserRole = new GenericDBEntity<UserRole>(PATH);
+        public static Lazy<GenericDBEntity<Owner>> Owners = new Lazy<GenericDBEntity<Owner>>(() => new GenericDBEntity<Owner>(PATH));
 
         public static User Principal = null;
 
