@@ -44,6 +44,11 @@ namespace Assign2
                 owner = new Owner { User = App.Principal };
                 await App.Owners.Value.SaveAsync(owner);
             }
+            else if(owner.Pets?.Count >= 2)
+            {
+                await DisplayAlert("Maximum Reached", "You already have 2 pets registered", "Ok");
+                return;
+            }
 
             _pet.OwnerID = owner.ID;
             await App.Pets.SaveAsync(_pet);
