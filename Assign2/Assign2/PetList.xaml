@@ -32,7 +32,13 @@
 
                         <Image 
                             Grid.Row="2" Source="{ Binding ImagePath }"
-                            />
+                            >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="HandleDoubleTap"
+                                    NumberOfTapsRequired="2"/>
+                            </Image.GestureRecognizers>
+                        </Image>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
