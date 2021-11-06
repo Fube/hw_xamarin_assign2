@@ -19,15 +19,23 @@
                                Text="{Binding Email}"
                                FontAttributes="None" />
 
-                        <Grid Grid.Column="1">
-                            <Label Text="Admin"/>
-                            <CheckBox Grid.Column="1" Grid.Row="0" IsChecked="{ Binding IsAdmin }" CheckedChanged="AdminCheckedChange"/>
+                        <Grid Grid.Column="1" RadioButtonGroup.GroupName="{Binding ID}">
+                            <!--<Label Text="Admin"/>
+                            <CheckBox Grid.Column="1" Grid.Row="0" IsChecked="{ Binding IsAdmin }" CheckedChanged="AdminCheckedChange"/>-->
 
-                            <Label Grid.Column="0" Grid.Row="1" Text="Internal"/>
-                            <CheckBox Grid.Column="1" Grid.Row="1" IsChecked="{ Binding IsInternal}" CheckedChanged="InternalCheckedChange"/>
+                            <Label Text="Internal"/>
+                            <RadioButton
+                                Grid.Column="1"
+                                Grid.Row="0" 
+                                IsChecked="{ Binding IsInternal}"
+                                CheckedChanged="InternalCheckedChange"/>
 
-                            <Label Grid.Column="0" Grid.Row="2" Text="Viewer"/>
-                            <CheckBox Grid.Column="1" Grid.Row="2" IsChecked="{ Binding IsViewer }" CheckedChanged="ViewerCheckedChange"/>
+                            <Label Grid.Column="0" Grid.Row="1" Text="Viewer"/>
+                            <RadioButton
+                                Grid.Column="1" 
+                                Grid.Row="1"
+                                IsChecked="{ Binding IsViewer }"
+                                CheckedChanged="ViewerCheckedChange"/>
                         </Grid>
                     </Grid>
                 </DataTemplate>

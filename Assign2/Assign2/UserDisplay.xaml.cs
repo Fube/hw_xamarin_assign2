@@ -26,16 +26,16 @@ namespace Assign2
             UsersList.ItemsSource = users;
         }
 
-        private void AdminCheckedChange(object sender, EventArgs args)
-        {
-            var cb = (CheckBox)sender;
-            int id = (cb.BindingContext as User)?.ID ?? default;
-            HandleRoleChange(id, "ADMIN", cb.IsChecked);
-        }
+        //private void AdminCheckedChange(object sender, EventArgs args)
+        //{
+        //    var cb = (CheckBox)sender;
+        //    int id = (cb.BindingContext as User)?.ID ?? default;
+        //    HandleRoleChange(id, "ADMIN", cb.IsChecked);
+        //}
 
         private void InternalCheckedChange(object sender, EventArgs args)
         {
-            var cb = (CheckBox)sender;
+            var cb = (RadioButton)sender;
             int id = (cb.BindingContext as User)?.ID ?? default;
             HandleRoleChange(id, "INTERNAL", cb.IsChecked);
         }
@@ -43,7 +43,7 @@ namespace Assign2
         private void ViewerCheckedChange(object sender, EventArgs args)
         {
 
-            var cb = (CheckBox)sender;
+            var cb = (RadioButton)sender;
             int id = (cb.BindingContext as User)?.ID ?? default;
             HandleRoleChange(id, "VIEWER", cb.IsChecked);
         }
