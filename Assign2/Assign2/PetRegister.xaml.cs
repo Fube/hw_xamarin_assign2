@@ -41,7 +41,7 @@ namespace Assign2
 
             if(owner == null)
             {
-                owner = new Owner { User = App.Principal };
+                owner = new Owner { Pets = new List<Pet>(), User = App.Principal };
                 await App.Owners.Value.SaveAsync(owner);
             }
             else if(owner.Pets?.Count >= 2)
