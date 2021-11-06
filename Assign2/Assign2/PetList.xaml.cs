@@ -38,7 +38,8 @@ namespace Assign2
                 await DisplayAlert("Unauthorized", "You are not allowed to modify this pet", "Ok");
                 return;
             }
-            // TODO: Add pet edit nav push
+            var pet = await App.Pets.GetOneByPredicate(n => n.OwnerID == ownerId);
+            await Navigation.PushAsync(new PetEdit(pet));
         }
     }
 }

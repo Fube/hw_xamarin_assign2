@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assign2.PetEdit">
+    <ContentPage.Content>
+        <StackLayout Padding="20"
+            VerticalOptions="Center">
+            <Label Text="Edit Pet"
+            FontSize="Large"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" />
+
+            <Entry Text="{Binding Pet.Name}"
+            Placeholder="Pet Name"
+            FontSize="Large"
+            />
+
+            <Entry Text="{Binding Pet.Type}"
+            Placeholder="Type"
+            FontSize="Large"
+            />
+
+            <Button Text="Update"
+            Font="large"
+            BackgroundColor="LightBlue"
+            Clicked="Update"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
