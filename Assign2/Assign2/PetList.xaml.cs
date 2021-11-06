@@ -16,7 +16,7 @@ namespace Assign2
 
         private async void loadPets()
         {
-            var pets = await App.Pets.Value.GetAsync();
+            var pets = await App.Pets.GetAsync();
             Pets.ItemsSource = pets;
         }
 

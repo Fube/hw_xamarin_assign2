@@ -33,9 +33,24 @@ namespace Assign2
             BindingContext = this;
         }
 
-        public async void Register(object sender, EventArgs args) {
-            
-            await App.Pets.Value.SaveAsync(_pet);
+        public async void Register(object sender, EventArgs args) 
+        {
+            var prince = App.Principal.ID;
+            var owners = await App.Owners.Value.GetAsync();
+            var owner = owners.FirstOrDefault(n => n.User?.ID == prince);
+
+            if(owner == null)
+            {
+                owner = new Owner { User = App.Principal };
+                await App.Owners.Value.SaveAsync(owner);
+            }
+
+            _pet.OwnerID = owner.ID;
+            await App.Pets.SaveAsync(_pet);
+            owner.Pets.Add(_pet);
+
+            await App.Owners.Value.Update(owner);
+
             await Navigation.PopAsync();
         }
     }
