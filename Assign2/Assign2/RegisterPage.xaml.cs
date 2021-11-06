@@ -37,14 +37,9 @@ namespace Assign2
 
         private async void btnRegister_ClickedAsync(object sender, EventArgs args)
         {
-            //string userName = a.Text;
-            //string passWord = b.Text;
-            //string phone = c.Text;
-            //string email = d.Text;
 
             (int _, string userName, string email, string passWord, string phone) = _user;
 
-            // var user = new User { Username = userName, Password = passWord, Email = email, Phone = phone };
             if (!(string.IsNullOrEmpty(userName) && string.IsNullOrEmpty(passWord)))
             {
                 if(!_user.IsValid(out string message))
@@ -53,10 +48,14 @@ namespace Assign2
                 }
                 else
                 {
+                    var r = await App.Roles.Value.GetOneByPredicate(n => n.Name == "VIEWER");
+                    if (_user.Roles == null) _user.Roles = new List<Role>();
+
+                    _user.Roles.Add(r);
                     await App.Users.Value.SaveAsync(_user);
+
                     //await DisplayAlert("Register result", "Success", "OK");
                     await Navigation.PopAsync();
-                    //await Navigation.PushAsync(new LoginPage());
                 }
             }
             else

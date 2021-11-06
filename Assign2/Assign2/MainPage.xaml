@@ -4,10 +4,11 @@
              x:Class="Assign2.MainPage">
 
     <StackLayout>
-        <Button Text="Vet Registration" Clicked="VetRegister" />
-        <Button Text="Vet List" Clicked="VetList"/>
-        <Button Text="Pet Registration" Clicked="PetRegister"/>
-        <Button Text="Pet Display" Clicked="Button_Clicked"/>
+        <Button Text="Vet Registration" IsVisible="{ Binding IsVetRegisterEnabled }" Clicked="VetRegister" />
+        <Button Text="Vet List" IsVisible="{ Binding IsVetListEnabled }" Clicked="VetList"/>
+        <Button Text="Pet Registration" IsVisible="{ Binding IsPetRegisterEnabled }" Clicked="PetRegister"/>
+        <Button Text="Pet Display" IsVisible="{ Binding IsPetListEnabled }" Clicked="Button_Clicked"/>
+        <Button Text="User Display" IsVisible="{Binding IsUserListEnabled}" Clicked="UserDisplay"/>
         <Button Text="Logout" Clicked="Logout" />
     </StackLayout>
 
