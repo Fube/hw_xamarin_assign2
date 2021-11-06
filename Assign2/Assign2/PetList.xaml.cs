@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.IO;
+using System.Linq;
 using Xamarin.Forms;
 
 namespace Assign2
@@ -17,7 +18,12 @@ namespace Assign2
         private async void loadPets()
         {
             var pets = await App.Pets.GetAsync();
-            Pets.ItemsSource = pets;
+            Pets.ItemsSource = pets.Select(n => new
+            {
+                Name = n.Name,
+                Type = n.Type,
+                ImagePath = $"{n.Type.ToLower()}.jpg"
+            });
         }
 
     }

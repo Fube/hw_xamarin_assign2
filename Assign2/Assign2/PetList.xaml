@@ -8,15 +8,16 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="10">
-                         <!--<Grid.RowDefinitions>
-                         <RowDefinition Height="*" />
-                         <RowDefinition Height="*" />
-                         </Grid.RowDefinitions>-->
+                         <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="64" />
+                        </Grid.RowDefinitions>
 
-                        <!--<Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>-->
+                        </Grid.ColumnDefinitions>
                 
                         <Label Grid.Column="0"
                                Grid.ColumnSpan="2"
@@ -28,6 +29,10 @@
                                Grid.ColumnSpan="2"
                                Text="{Binding Type}"
                                FontAttributes="None" />
+
+                        <Image 
+                            Grid.Row="2" Source="{ Binding ImagePath }"
+                            />
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
