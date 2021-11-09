@@ -13,7 +13,7 @@ namespace Assign2
 
         public string Name { get; set; }
 
-        [ManyToMany(typeof(UserRole), CascadeOperations = CascadeOperation.All)]
-        public List<User> Users { get; set; }
+        //[ManyToMany(typeof(UserRole), CascadeOperations = CascadeOperation.All)]
+        //public List<User> Users { get; set; }
     }
 }
