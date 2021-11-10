@@ -48,15 +48,11 @@ namespace Assign2
                 }
                 else
                 {
-                    await DisplayAlert("a", "Got here", "b");
                     var r = await App.Roles.Value.GetOneByPredicate(n => n.Name == "VIEWER");
                     if (_user.Roles == null) _user.Roles = new List<Role>();
-                    await DisplayAlert("a", "Got here1", "b");
 
                     _user.Roles.Add(r);
-                    await DisplayAlert("a", "Got here2", "b");
                     await App.Users.Value.SaveAsync(_user);
-                    await DisplayAlert("a", "Got here3", "b");
 
                     //await DisplayAlert("Register result", "Success", "OK");
                     await Navigation.PopAsync();
